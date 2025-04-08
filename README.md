@@ -1,2 +1,2 @@
 # DSA
-My Java Leetcode Codes 
+My Java Codes 

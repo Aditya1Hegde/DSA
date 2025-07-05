@@ -3,27 +3,26 @@ class Solution {
         return findPair(nums, target, 0);
     }
 
-    // Outer loop: index i
     private int[] findPair(int[] nums, int target, int i) {
         if (i >= nums.length) {
-            return new int[]{-1, -1}; // base case: not found
+            return new int[]{-1, -1}; 
         }
-        // Inner loop: index j
+        
         int[] result = findInner(nums, target, i, 0);
         if (result[0] != -1) {
-            return result; // pair found
+            return result; 
         }
-        return findPair(nums, target, i + 1); // check next i
+        return findPair(nums, target, i + 1); 
     }
 
-    // Inner loop: index j
+
     private int[] findInner(int[] nums, int target, int i, int j) {
         if (j >= nums.length) {
-            return new int[]{-1, -1}; // end of inner loop
+            return new int[]{-1, -1};
         }
         if (i != j && nums[i] + nums[j] == target) {
-            return new int[]{i, j}; // found the pair
+            return new int[]{i, j}; 
         }
-        return findInner(nums, target, i, j + 1); // move j forward
+        return findInner(nums, target, i, j + 1); 
     }
 }

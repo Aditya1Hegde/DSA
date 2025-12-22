@@ -4,17 +4,9 @@ class Solution {
         int balance=0;
         for(int i=0;i<s.length();i++){
             char c=s.charAt(i);
-            if(c=='('){
-                if(balance>0){
-                    sb.append(c);
-                }
-                balance++;
-            }else{
-                balance--;
-                if(balance>0){
-                    sb.append(c);
-                }
-            }
+           if(c==')') balance--; 
+           if(balance!=0) sb.append(c);
+           if(c=='(') balance++;
         }
         return sb.toString();
     }

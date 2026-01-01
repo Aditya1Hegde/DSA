@@ -10,15 +10,20 @@ class Solution {
         if(isFlush){
             return "Flush";
         }
-        Map<Integer,Integer> Map=new HashMap<>();
-        
-
-        for(int r:ranks){
-            Map.put(r,Map.getOrDefault(r,0)+1);
+        int maxCount=0;
+        for(int i=0;i<ranks.length;i++){
+            int count=0;
+            for(int j=0;j<ranks.length;j++){
+                if(ranks[i]==ranks[j]){
+                    count++;
+                }
+            }
+            if(count>maxCount){
+                maxCount=count;
+            }
         }
-        int Frequency=Collections.max(Map.values());
-        if(Frequency>=3) return "Three of a Kind";
-        if(Frequency==2) return "Pair";
+        if(maxCount>=3) return "Three of a Kind";
+        if(maxCount==2) return "Pair";
     
     return "High Card";
     }
